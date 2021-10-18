@@ -40,8 +40,7 @@
                 Study Tools
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Homework Tracker</a></li>
-                <li><a class="dropdown-item" href="#">Day Planner</a></li>
+                <li><a class="dropdown-item" href="#">Day Planner (under design)</a></li>
               </ul>
             </li>
           </ul>
@@ -49,6 +48,7 @@
       </div>
     </nav>
 
+    <!-- Header -->
     <header>
       <div class="container textcenter">
         <h1>Assignment List</h1>
@@ -67,77 +67,59 @@
             <h5 class="modal-title" id="staticBackdropLabel">Add New Assignments</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label">Name</label>
-              <input type="text" class="form-control" id="formGroupExampleInput" placeholder="The Trolley Dilemma">
+          <form id="custom-form">
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Name</label>
+                <input type="name" class="form-control" id="formGroupExampleInput" placeholder="The Trolley Dilemma">
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Type</label>
+                <select class="form-select" aria-label="Default select example" id="newType">
+                  <option selected>Quiz</option>
+                  <option value="1">Essay</option>
+                  <option value="2">Presentation</option>
+                  <option value="3">Group Project</option>
+                </select>
+              </div>  
+              <div class="mb-3">         
+                <label for="formGroupExampleInput" class="form-label">Points</label>
+                <input type="number" class="form-control" id="newPoints">
+              </div> 
+              <div class="mb-3">
+                <label for="formGroupExampleInput" class="form-label">Due Date</label>
+                <input type="text" class="form-control" id="datepicker">
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label">Type</label>
-              <select class="form-select" aria-label="Default select example">
-                <option selected>Quiz</option>
-                <option value="1">Essay</option>
-                <option value="2">Presentation</option>
-                <option value="3">Group Project</option>
-              </select>
-            </div>  
-            <div class="mb-3">         
-              <label for="formGroupExampleInput" class="form-label">Points</label>
-              <input type="number" class="form-control">
-            </div> 
-            <div class="mb-3">
-              <label for="formGroupExampleInput" class="form-label">Due Date</label>
-              <input type="text" class="form-control" id="datepicker">
-            </div>
-          </div>
+          </form>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary custom-btn">Add</button>
           </div>
         </div>
       </div>
     </div>
 
-    
-    <table class="table table-hover col-lg-5 float-left" id="hwtable">
+    <!-- Table -->
+    <table class="table table-hover col-lg-5 float-left">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Description</th>
           <th scope="col">Type</th>
           <th scope="col">Points</th>
           <th scope="col">Due Date</th>
-          <th scope="col">Days Until Due Date</th>
+          <th scope="col"></th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="hwtable">
         <tr>
-          <th scope="row">1</th>
           <td>The Trolley Dilemma</td>
-          <td></td>
-          <td>Essay</td>
-          <td>5 points</td>
-          <td id="tddue">2/1/2023</td>
-          <td id="tduntil"></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>The Trolley Dilemma</td>
-          <td></td>
-          <td>Essay</td>
-          <td>5 points</td>
-          <td>2/1/2022</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>The Trolley Dilemma</td>
-          <td></td>
+          <td>The trolley problem is a thought experiment in ethics.</td>
           <td>Essay</td>
           <td>5 points</td>
           <td>2/1/2022</td>
@@ -145,7 +127,6 @@
         </tr>
       </tbody>
     </table>
-
 
     <!-- jquery-cdn -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
