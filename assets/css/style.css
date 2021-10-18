@@ -1,9 +1,5 @@
-.quote {
-    color: black;
-    font-size: 28px;
+.textcenter {
     text-align: center;
-}
-
-.display-4 {
-    text-align: center;
+    height: 200px;
+    padding-top: 20px;
 }
