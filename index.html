@@ -10,7 +10,7 @@
     <!-- jquery-ui-cdn -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <!-- custom css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/home.css">
 </head>
 
 <body>
@@ -24,13 +24,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item navbar-brand">
-              <a class="nav-link" aria-current="page" href="#">Home</a>
+              <a class="nav-link" aria-current="page" href="./index.html">Home</a>
             </li>
             <li class="nav-item navbar-brand">
               <a class="nav-link" href="#">Syllabus</a>
             </li>
             <li class="nav-item navbar-brand">
-              <a class="nav-link" href="#">Assignments</a>
+              <a class="nav-link" href="./assets/html/assignment.html">Assignments</a>
             </li>
             <li class="nav-item navbar-brand">
               <a class="nav-link" href="#">Grades</a>
@@ -40,6 +40,7 @@
                 Study Tools
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="./assets/html/library_of_congress.html">Library of Congress</a></li>
                 <li><a class="dropdown-item" href="#">Day Planner (under design)</a></li>
               </ul>
             </li>
@@ -48,85 +49,9 @@
       </div>
     </nav>
 
-    <!-- Header -->
-    <header>
-      <div class="container textcenter">
-        <h1>Assignment List</h1>
-        <p id="currentTime"></p>
-        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-          Add An Assignment
-        </button>          
-      </div>
-    </header>
-
-    <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Add New Assignments</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form id="custom-form">
-            <div class="modal-body">
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Name</label>
-                <input type="name" class="form-control" id="formGroupExampleInput" placeholder="The Trolley Dilemma">
-              </div>
-              <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-              </div>
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Type</label>
-                <select class="form-select" aria-label="Default select example" id="newType">
-                  <option selected>Quiz</option>
-                  <option value="1">Essay</option>
-                  <option value="2">Presentation</option>
-                  <option value="3">Group Project</option>
-                </select>
-              </div>  
-              <div class="mb-3">         
-                <label for="formGroupExampleInput" class="form-label">Points</label>
-                <input type="number" class="form-control" id="newPoints">
-              </div> 
-              <div class="mb-3">
-                <label for="formGroupExampleInput" class="form-label">Due Date</label>
-                <input type="text" class="form-control" id="datepicker">
-              </div>
-            </div>
-          </form>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary custom-btn">Add</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Table -->
-    <table class="table table-hover col-lg-5 float-left">
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Description</th>
-          <th scope="col">Type</th>
-          <th scope="col">Points</th>
-          <th scope="col">Due Date</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody id="hwtable">
-        <tr>
-          <td><a href="./assets/html/quiz_the_trolley_dilemma.html">The Trolley Dilemma</a></td>
-          <td>The trolley problem is a thought experiment in ethics.</td>
-          <td>Quiz</td>
-          <td>5 points</td>
-          <td>2/1/2022</td>
-          <td></td>
-        </tr>
-      </tbody>
-    </table>
+    <main>
+        <img src="https://www.invaluable.com/blog/wp-content/uploads/2018/12/shutterstock_753294010.jpg" alt="philosophy image" id="image" />
+    </main>
 
     <!-- jquery-cdn -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -137,6 +62,6 @@
     <!-- jquery-ui-js -->
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js" integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
     <!-- custom js -->
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/home.js"></script>
 </body>
 </html>
