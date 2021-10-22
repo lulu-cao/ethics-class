@@ -49,7 +49,26 @@
       </div>
     </nav>
 
+    <form class="container">
+        <h2 class="h2">Library of Congress Search Engine</h2>
+        <select class="form-select" aria-label="Default select example" id="userSelect">
+            <option selected value="search">Choose one</option>
+            <option value="maps">Maps</option>
+            <option value="audio">Audio</option>
+            <option value="photos">Photos</option>
+            <option value="manuscripts">Manuscripts</option>
+            <option value="newspapers">Newspapers</option>
+            <option value="film-and-videos">Films and Videos</option>
+            <option value="notated-music">Printed Music</option>
+            <option value="websites">Websites</option>
+        </select>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" id="userSearch" placeholder="Enter keywords here, e.g. philosophy" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        </div>
+    </form>
 
+    <div id="result"></div>
 
     <!-- jquery-cdn -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
