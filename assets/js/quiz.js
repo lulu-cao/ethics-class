@@ -18,7 +18,7 @@ function replaceWithQuizQuestions() {
     quizInitContainer.style.display = "none";
     secondContainer.style.opacity = "1";
 
-    //setting the timer
+    //when the button "start" is clicked, the timer starts
     let i = 120; 
 
     let timeInterval = setInterval(function() {
@@ -29,6 +29,15 @@ function replaceWithQuizQuestions() {
         };
     }, 1000);        
 };
+
+// setting up basic variables and functions in order to check answers and indicate the check results
+let answerOne = document.getElementById('answerOne');
+let answerTwo = document.getElementById('answerTwo');
+let answerThree = document.getElementById('answerThree');
+let answerOneLabel = document.getElementById('answerOneLabel');
+let answerTwoLabel = document.getElementById('answerTwoLabel');
+let answerThreeLabel = document.getElementById('answerThreeLabel');
+let questionSet = document.getElementById('textCenter');
 
 function green(event) {
     var correct = document.createElement('p');
@@ -42,53 +51,183 @@ function red(event) {
     eval.style.color = "red";
 };
 
-// Add event listener to three radios 
-let answerOne = document.getElementById('answerOne');
-let answerTwo = document.getElementById('answerTwo');
-let answerThree = document.getElementById('answerThree');
-let answerOneLabel = document.getElementById('answerOneLabel');
-let answerTwoLabel = document.getElementById('answerTwoLabel');
-let answerThreeLabel = document.getElementById('answerThreeLabel');
+// setting up arrays for each question set and the correct answer
+let questionContent = [
+    "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "2. Suspendisse non metus tempus, suscipit turpis id, congue nulla. Pellentesque scelerisque libero lacinia, aliquet sem non, mollis magna.",
+    "3. Cras aliquet placerat erat, a egestas quam tempor aliquet. Curabitur ultrices lacus mi, ut hendrerit nisi suscipit sit amet. Morbi eu bibendum sem.",
+    "4. Vestibulum pellentesque tellus id tempus rhoncus. Nunc ullamcorper varius massa, nec porta eros vehicula eget.",
+    "5. Praesent rutrum dapibus ornare. Duis faucibus elit a ipsum convallis, nec tempor arcu auctor. Donec mattis ultrices volutpat."
+];
 
-answerOne.addEventListener('change', 
-    function answerOneChecked() {if (answerOne.checked == true) {
+let answerOneContent = [
+    "I am the correct answer.",
+    "Vestibulum sodales risus eget imperdiet molestie.",
+    "I am the correct answer.",
+    "Duis molestie est et sem condimentum, vitae elementum arcu efficitur.",
+    "Fusce euismod interdum tempor.",
+];
+
+let answerTwoContent = [
+    "Nam dui nisi",
+    "Integer tincidunt suscipit arcu sit amet aliquam.",    
+    "Duis molestie est et sem condimentum, vitae elementum arcu efficitur.",
+    "I am the correct answer.", 
+    "Duis molestie est et sem condimentum, vitae elementum arcu efficitur.",
+];
+
+let answerThreeContent = [
+    "Fusce euismod interdum tempor.",
+    "I am the correct answer.",
+    "Integer tincidunt suscipit arcu sit amet aliquam.",
+    "Etiam tellus risus, tincidunt a turpis nec, posuere luctus felis.",
+    "I am the correct answer."
+];
+
+let correctAnswer = [
+    answerOne,
+    answerThree,
+    answerOne,
+    answerTwo,
+    answerThree
+];
+
+let incorrectAnswer1 = [
+    answerTwo,
+    answerOne,
+    answerTwo,
+    answerOne,
+    answerOne
+];
+
+let incorrectAnswer2 = [
+    answerThree,
+    answerTwo,
+    answerThree,
+    answerThree,
+    answerTwo
+];
+
+//check answers, create "next" button, and jump to next question
+let addBtn = document.createElement('button');
+let g = 0;
+
+correctAnswer[g].addEventListener('change', 
+    function correctAnswerChecked() {if (correctAnswer[g].checked == true) {
     green();
-    answerTwo.disabled = true;
-    answerThree.disabled = true;
+    incorrectAnswer1[g].disabled = true;
+    incorrectAnswer2[g].disabled = true;
     createNextButton();
     j++;
     currentScore.textContent = j;
 }})
 
-answerTwo.addEventListener('change', 
-    function answerTwoChecked() {if (answerTwo.checked) {
+incorrectAnswer1[g].addEventListener('change', 
+    function incorrectAnswer1Checked() {if (incorrectAnswer1[g].checked) {
     red();
-    answerOne.disabled = true;
-    answerThree.disabled = true;
+    correctAnswer[g].disabled = true;
+    incorrectAnswer2[g].disabled = true;
     createNextButton();
 }})
 
-answerThree.addEventListener('change', 
-    function answerThreeChecked() {if (answerThree.checked) {
+incorrectAnswer2[g].addEventListener('change', 
+    function incorrectAnswer2Checked() {if (incorrectAnswer2[g].checked) {
     red();
-    answerOne.disabled = true;
-    answerTwo.disabled = true;
+    correctAnswer[g].disabled = true;
+    incorrectAnswer1[g].disabled = true;
     createNextButton();
 }})
 
-//create "next" button
-let addBtn = document.createElement('button');
+// answerOne.addEventListener('change', 
+//     function correctAnswerChecked() {if (answerOne.checked == true) {
+//     console.log(correctAnswer[g]);
+//     green();
+//     answerTwo.disabled = true;
+//     answerThree.disabled = true;
+//     createNextButton();
+//     j++;
+//     currentScore.textContent = j;
+// }})
+
+// answerTwo.addEventListener('change', 
+//     function incorrectAnswer1Checked() {if (answerTwo.checked) {
+//     console.log(incorrectAnswer1[g]);
+//     red();
+//     answerOne.disabled = true;
+//     answerThree.disabled = true;
+//     createNextButton();
+// }})
+
+// answerThree.addEventListener('change', 
+//     function incorrectAnswer2Checked() {if (answerThree.checked) {
+//     console.log(incorrectAnswer2);
+//     red();
+//     answerOne.disabled = true;
+//     answerTwo.disabled = true;
+//     createNextButton();
+// }})
+
 function createNextButton() {
     addBtn.classList.add("btn-dark");
     addBtn.classList.add("btn");
     addBtn.innerHTML = "Next";
     eval.appendChild(addBtn);
+    g++;
+    if (g > 4) {
+        console.log("log me when g > 4");
+        console.log("start building end page");
+        addBtn.classList.add("btn-dark");
+        addBtn.classList.add("btn");
+        addBtn.innerHTML = "Complete";
+        eval.appendChild(addBtn);
+        addBtn.addEventListener('click', 
+        function completeQuiz() {
+            questionSet.remove();
+            eval.innerHTML = "<h2><br/><br/>Congrats! You have finished this quiz.<br/><br/>Your score is: " + j++ + ".</h2>";
+            eval.style.color = "darkgreen";
+            return;
+        })
+    } else {
+    correctAnswer[g].addEventListener('change', 
+        function correctAnswerChecked() {if (correctAnswer[g].checked == true) {
+        console.log(correctAnswer[g]);
+        console.log("correct");
+        green();
+        incorrectAnswer1[g].disabled = true;
+        incorrectAnswer2[g].disabled = true;
+        createNextButton();
+        j++;
+        currentScore.textContent = j;
+    }})
+
+    incorrectAnswer1[g].addEventListener('change', 
+        function incorrectAnswer1Checked() {if (incorrectAnswer1[g].checked) {
+        console.log(incorrectAnswer1[g]);
+        console.log("wrong1");
+        red();
+        correctAnswer[g].disabled = true;
+        incorrectAnswer2[g].disabled = true;
+        createNextButton();
+    }})
+
+    incorrectAnswer2[g].addEventListener('change', 
+        function incorrectAnswer2Checked() {if (incorrectAnswer2[g].checked) {
+        console.log(incorrectAnswer2[g]);
+        console.log("wrong2");
+        red();
+        correctAnswer[g].disabled = true;
+        incorrectAnswer1[g].disabled = true;
+        createNextButton();
+    }})
+
     addBtn.addEventListener('click',
     function newQuestion() {
-        question.innerHTML = "2. Suspendisse non metus tempus, suscipit turpis id, congue nulla. Pellentesque scelerisque libero lacinia, aliquet sem non, mollis magna.";
-        answerOneLabel.innerHTML = "Integer tincidunt suscipit arcu sit amet aliquam.";
-        answerTwoLabel.innerHTML = "Nulla id est ac ligula posuere pellentesque volutpat eu ligula.";
-        answerThreeLabel.innerHTML = "Vestibulum sodales risus eget imperdiet molestie.";
+        console.log("g is currently " + g); 
+        console.log("start building new question");       
+        question.innerHTML = questionContent[g];
+        answerOneLabel.innerHTML = answerOneContent[g];
+        answerTwoLabel.innerHTML = answerTwoContent[g];
+        answerThreeLabel.innerHTML = answerThreeContent[g];
         eval.textContent = "";
         answerOne.checked = false;
         answerTwo.checked = false;
@@ -96,7 +235,6 @@ function createNextButton() {
         answerOne.disabled = false;
         answerTwo.disabled = false;
         answerThree.disabled = false;
-});
+        console.log("new question is complete");
+    })}
 };
-
-
