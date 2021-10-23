@@ -9,8 +9,14 @@
     margin-right: auto;
 }
 
+/* hide for future use */
+#footer {
+    display: none;
+}
+
 @media screen and (max-width: 468px) {
     #result {
         width: 90%;
     }
 }
+
