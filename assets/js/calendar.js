@@ -1,10 +1,11 @@
-const api_url ="https://zenquotes.io/api/today/";
+var url = "https://zenquotes.io/api/quotes";
 
-async function getapi(url)
-{
-  const response = await fetch(url);
-  var data = await response.json();
-  console.log(data);
-}
+function getHoliday() {
+    fetch(url).then(function(response) {
+        return response.json;
+    })
+    .then(function(data) {
+        console.log(data);
+    })
+};
 
-getapi(api_url);
