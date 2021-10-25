@@ -10,7 +10,7 @@
     <!-- jquery-ui-cdn -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <!-- custom css -->
-    <link rel="stylesheet" type="text/css" href="../css/quiz.css">
+    <link rel="stylesheet" type="text/css" href="../css/search_for_news.css">
 </head>
 
 <body>
@@ -51,32 +51,25 @@
       </div>
     </nav>
 
-    <header id="initContainer">
-        <h1>The Trolley Dilemma</h1>
-        <p>Suspendisse suscipit viverra malesuada. Morbi faucibus, urna vel lacinia elementum, eros arcu laoreet dui, quis imperdiet lorem odio sit amet tellus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam facilisis sodales turpis, ac posuere odio tempus eu. Praesent luctus est id nisl feugiat, ut bibendum nisi tempus. Vivamus condimentum tortor fringilla elit molestie feugiat. Phasellus et lectus sed lectus cursus laoreet. Fusce elit augue, vehicula eget ultrices blandit, placerat vitae tellus.</p>
-        <button id="startBtn">Start Quiz</button>
-    </header>
+    <form class="container">
+      <h2 class="h2">Search for News</h2>
+      <select class="form-select" aria-label="Default select example" id="userSelect">
+          <option selected value="cnn">CNN</option>
+          <option value="bbc">BBC</option>
+      </select>
+      <div class="input-group mb-3">
+          <input type="text" class="form-control" id="userSearch" placeholder="Enter keywords here, e.g. philosophy" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+      </div>
+    </form>
 
-    <main id="secondContainer">
-        <div">
-            <p class="floatLeft">Time left: <span id="timeLeft">120</span> seconds</p>
-            <p>Current score: <span id="currentScore"></span>/5</p>
-            <button class="floatLeft">View Scores<br/>(This function is under design)</button>
-        </div>
+    <div>
+      <p class="marginForMemory"><strong>Last searched format: </strong><span id="lastFormat"></span></p>
+      <p class="marginForMemory"><strong>Last searched keyword: </strong><span id="lastKeyword"></span></p>
+    </div>
 
-        <div id="textCenter">
-            <h1 id="question">1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
-            <input type="radio" name="question1" id="answerOne" value="answerOne"></input>
-            <label for="answerOne" id="answerOneLabel">I am the correct answer.</label><br>
-            <input type="radio" name="question1" id="answerTwo" value="answerTwo"></input>
-            <label for="answerTwo" id="answerTwoLabel">Nulla et vehicula nibh</label><br>
-            <input type="radio" name="question1" id="answerThree" value="answerThree"></input>
-            <label for="answerThree" id="answerThreeLabel">Donec sit amet consequat ex</label><br>
-        </div>
-
-        <div id="eval"></div>
-    </main>
-
+    <div id="result"></div>
+    
     <!-- jquery-cdn -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <!-- moment-js-cdn -->
@@ -86,6 +79,6 @@
     <!-- jquery-ui-js -->
     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js" integrity="sha256-xH4q8N0pEzrZMaRmd7gQVcTZiFei+HfRTBPJ1OGXC0k=" crossorigin="anonymous"></script>
     <!-- custom js -->
-    <script src="../js/quiz.js"></script>
+    <script src="../js/search_for_news.js"></script>
 </body>
 </html>
