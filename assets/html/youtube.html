@@ -50,13 +50,18 @@
       </div>
     </nav>
 
-    <!-- The <iframe> (and video player) will replace this <div> tag. -->
-    <div id="player"></div>
-    <button onclick="authenticate().then(loadClient)">authorize and load</button>
-    <button onclick="execute()">execute</button>
-    
-    
-    <script src="https://apis.google.com/js/api.js"></script>
+    <div class="row mt-5">
+      <div class="col">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/1A_CAkYt3GY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h5 class="channel">Crash Course Philosophy</h5>
+      </div>
+
+      <div class="col">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/18vLUz0pTvY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h5 class="channel">Philosophize This!</h5>
+      </div>
+    </div>
+
     <!-- jquery-cdn -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <!-- moment-js-cdn -->

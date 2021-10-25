@@ -5,6 +5,9 @@ Click [here](https://lulu-cao.github.io/ethics-class/) to visit the site.
 
 
 # Technical Skills
+* HTML
+* JavaScript
+* CSS
 * Bootstrap
 * jQuery
 

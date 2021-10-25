@@ -22,7 +22,9 @@ fetch(url)
         console.log(holidayDateFormated);
         let dateFromCalendar = document.getElementById("date" + holidayDateFormated);
         let holidayName = document.createElement('p');
-        holidayName.textContent = data.response.holidays[0].name;
+        holidayName.innerHTML = data.response.holidays[0].name;
+        holidayName.classList.add("custom-td");
+        holidayName.style.fontSize = "11px";
         dateFromCalendar.appendChild(holidayName);
     });
 }).catch(function(error) {
@@ -31,8 +33,8 @@ fetch(url)
 
 
 // highlight current date
-let currentDay = moment().format('MMDDYY');
-console.log(currentDay);
-let currentDate = document.getElementById("date" + currentDay);
-currentDate.classList.add("table-active");
+let currentDateFromMoment = moment().format('MMDDYY');
+console.log(currentDateFromMoment);
+let currentDateFromCalendar = document.getElementById("date" + currentDateFromMoment);
+currentDateFromCalendar.classList.add("table-active");
 

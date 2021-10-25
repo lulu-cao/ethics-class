@@ -3,6 +3,11 @@
     margin-bottom: 20px;
 }
 
+.marginForMemory {
+    margin-left: 5%;
+    margin-bottom: 0;
+}
+
 #result {
     width: 82%;
     margin-left: auto;
