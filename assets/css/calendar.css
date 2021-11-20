@@ -48,3 +48,11 @@
 .notCurrentMonth {
     color: grey;
 }
+
+#leftArrow img {
+    width:30px;
+}
+
+#rightArrow img {
+    width: 30px;
+}
