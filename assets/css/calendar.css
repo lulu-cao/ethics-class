@@ -34,8 +34,17 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    height: 100px;
+}
+
+.custom-td:hover {
+    background-color: lightgray;
 }
 
 .table-active {
     font-weight: 700;
+}
+
+.notCurrentMonth {
+    color: grey;
 }
