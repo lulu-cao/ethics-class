@@ -56,3 +56,43 @@
 #rightArrow img {
     width: 30px;
 }
+
+
+/* style the scheduler */
+.ui-datepicker {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40rem;
+}
+
+.ui-datepicker-header {
+    background-color: white;
+    border-style: none;
+}
+
+.ui-datepicker-title {
+    font-size: 25px;
+}
+
+.ui-datepicker-prev {
+    font-size: 30px;
+    align-items: center;
+}
+
+.ui-datepicker-next {
+    font-size: 30px;
+    align-items: center;
+}
+/* these two classes control all table cells */
+.ui-state-default {
+    height: 4rem;
+    background-color: white;
+}
+
+.ui-datepicker td span, .ui-datepicker td a {
+    text-align: left;
+    background-color: white;
+}
+
+/* check this webpage for helpful resources: https://api.jqueryui.com/datepicker/#option-autoSize 
+section Theming */
