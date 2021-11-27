@@ -63,6 +63,7 @@
     margin-left: auto;
     margin-right: auto;
     width: 40rem;
+    font-family: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
 .ui-datepicker-header {
@@ -94,5 +95,18 @@
     background-color: white;
 }
 
+@media screen and (max-width: 375px) {
+    .ui-datepicker {
+        width: auto;
+    }
+
+    .ui-state-default {
+        height: 2rem;
+    }
+
+    .ui-datepicker td span, .ui-datepicker td a {
+        text-align: center;
+    }
+}
 /* check this webpage for helpful resources: https://api.jqueryui.com/datepicker/#option-autoSize 
 section Theming */
