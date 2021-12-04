@@ -55,7 +55,7 @@ function red(event) {
 let questionContent = [
     "1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "2. Suspendisse non metus tempus, suscipit turpis id, congue nulla. Pellentesque scelerisque libero lacinia, aliquet sem non, mollis magna.",
-    "3. Cras aliquet placerat erat, a egestas quam tempor aliquet. Curabitur ultrices lacus mi, ut hendrerit nisi suscipit sit amet. Morbi eu bibendum sem.",
+    "3. Cras placerat erat, a egestas quam tempor aliquet. Curabitur ultrices lacus mi, ut hendrerit nisi suscipit sit amet. Morbi eu bibendum sem.",
     "4. Vestibulum pellentesque tellus id tempus rhoncus. Nunc ullamcorper varius massa, nec porta eros vehicula eget.",
     "5. Praesent rutrum dapibus ornare. Duis faucibus elit a ipsum convallis, nec tempor arcu auctor. Donec mattis ultrices volutpat."
 ];
