@@ -19,7 +19,7 @@ function displayQuestion() {
     questionTitle.innerHTML = currentQuestion.question;
     choicesEl.innerHTML = "";
     currentQuestion.choices.forEach(function(choices, i) {
-        let choiceItem = document.createElement("btn");
+        let choiceItem = document.createElement("button");
         choiceItem.setAttribute("class", "button");
         choiceItem.setAttribute("value", choices);
         console.log(choices);
@@ -31,18 +31,18 @@ function displayQuestion() {
     // The bug is fixed for this function; questions and choices display normally for the first question set
 };
 
-// function startTimer() {
-//     let i = 120; 
+function startTimer() {
+    let i = 120; 
 
-//     let timeInterval = setInterval(function() {
-//         i--;
-//         timeLeft.textContent = i;
-//         if (i < 1) {
-//             clearInterval(timeInterval);
-//             quizEnd();
-//         };
-//     }, 1000); 
-// };
+    let timeInterval = setInterval(function() {
+        i--;
+        timeLeft.textContent = i;
+        if (i < 1) {
+            clearInterval(timeInterval);
+            quizEnd();
+        };
+    }, 1000); 
+};
 
 function checkAnswer() {
     // start here!!!!!!!!!!!!!
@@ -58,6 +58,8 @@ function checkAnswer() {
         };
     };
 
+    displayEval;
+    
     console.log(correctOrWrong.innerHTML);
 
     setTimeout(function() {
@@ -89,6 +91,6 @@ function quizEnd() {
 startBtn.addEventListener('click', function() {
     initContainer.style.display = "none";
     displayQuestion();
-    // startTimer();
+    startTimer();
 }
 );
