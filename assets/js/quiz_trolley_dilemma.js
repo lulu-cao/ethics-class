@@ -5,7 +5,6 @@ let timeLeft = document.getElementById('timeLeft');
 let questionTitle = document.getElementById("question-title");
 let choicesEl = document.getElementById("choices");
 let currentQuestionIndex = 0;
-let currentQuestion = questions[currentQuestionIndex];
 let eval = document.getElementById('eval');
 let currentScore = document.getElementById('currentScore');
 let j = 0; //this variable is used to add up for currentScore
@@ -16,22 +15,22 @@ let submitBtn = document.getElementById("button-addon2");
 let correctOrWrong = document.getElementById("correctOrWrong");
 
 function displayQuestion() {
-    questionTitle.innerHTML = currentQuestion.question;
+    questionTitle.innerHTML = questions[currentQuestionIndex].question;
     choicesEl.innerHTML = "";
-    currentQuestion.choices.forEach(function(choices, i) {
+    questions[currentQuestionIndex].choices.forEach(function(choices, i) {
         let choiceItem = document.createElement("button");
-        choiceItem.setAttribute("class", "button");
+        choiceItem.setAttribute("class", "btn btn-outline-dark");
         choiceItem.setAttribute("value", choices);
         console.log(choices);
         console.log(i);
         choiceItem.innerHTML = i + 1 + ". " + choices;
-        choiceItem.addEventListener("click", checkAnswer());
+        choiceItem.addEventListener("click", checkAnswer);
         choicesEl.appendChild(choiceItem)
     });
-    // The bug is fixed for this function; questions and choices display normally for the first question set
 };
 
 function startTimer() {
+    // start here!!!!!!!!!!!!!
     let i = 120; 
 
     let timeInterval = setInterval(function() {
@@ -45,31 +44,28 @@ function startTimer() {
 };
 
 function checkAnswer() {
-    // start here!!!!!!!!!!!!!
-    function displayEval(event) {
-        console.log(currentQuestion);
-        if (this.value === questions[currentQuestionIndex].answer) {
-            correctOrWrong.innerHTML = "Correct!";
-            j++;
-            currentScore.textContent = j;
-        } else if (this.value !== questions[currentQuestionIndex].answer) {
-            console.log(this.value);
-            correctOrWrong.innerHTML = "Wrong!"
-        };
+    console.log(currentQuestionIndex);
+    console.log(questions[currentQuestionIndex]);
+    if (this.value === questions[currentQuestionIndex].answer) {
+        correctOrWrong.innerHTML = "Correct!";
+        correctOrWrong.style.color = "green"
+        j++;
+        currentScore.textContent = j;
+    } else if (this.value !== questions[currentQuestionIndex].answer) {
+        console.log(this.value);
+        correctOrWrong.innerHTML = "Wrong!";
+        correctOrWrong.style.color = "red"
     };
-
-    displayEval;
     
     console.log(correctOrWrong.innerHTML);
 
     setTimeout(function() {
         correctOrWrong.innerHTML = ""
-    }, 1000);
+    }, 2000);
 
     currentQuestionIndex++;
-    currentQuestion = questions[currentQuestionIndex];
 
-    if (currentQuestionIndex = questions.length) {
+    if (currentQuestionIndex === questions.length) {
         quizEnd();
     } else {
         displayQuestion();
