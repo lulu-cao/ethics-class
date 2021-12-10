@@ -1,10 +1,23 @@
+#mainContainer {
+    height: 100vh;
+}
+
+.floatLeft {
+    margin-left: 1rem;
+    margin-bottom: .3rem;
+}
+
+#timeContainer {
+    display: none;
+}
+
 #initContainer {
     text-align: center;
 }
 
 #initContainer h1 {
-    margin-top: 10%;
-    margin-bottom: 21px;
+    margin-top: 6rem;
+    margin-bottom: 20px;
 }
 
 #initContainer p {
@@ -14,20 +27,47 @@
     margin-bottom: 30px;
 }
 
-#secondContainer {
+.hide {
     opacity: 0;
 }
 
-#textCenter {
-    text-align: center;
+#choices {
+    margin-top: 1.5rem;
 }
 
-#textCenter h1 {
-    font-size: 26px;
-    margin-top: 5%;
-    margin-bottom: 20px;
+#scoreBtn {
+    text-decoration: none;
+    color: black
+}
+
+#scoreContainer {
+    height: 20rem;
+    width: 30rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: lightblue;
+}
+
+#score {
+    margin-top: 10rem;
+    padding: 7rem;
+}
+
+.textCenter {
+    text-align: center;
 }
 
 #eval {
     text-align: center;
+}
+
+#footer {
+    text-align: center;
+    width: 100%;
+    font-size: .9rem;
+}
+
+button a {
+    color: black;
+    text-decoration: none;
 }

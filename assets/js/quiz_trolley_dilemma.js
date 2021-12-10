@@ -1,5 +1,6 @@
 //questions from "questions_trolley_dilemma.js" can be used here directly without creating variables or imports
 let startBtn = document.getElementById('startBtn');
+let timeContainer = document.getElementById("timeContainer");
 let initContainer = document.getElementById('initContainer');
 let timeLeft = document.getElementById('timeLeft');
 let questionTitle = document.getElementById("question-title");
@@ -30,8 +31,7 @@ function displayQuestion() {
 };
 
 function startTimer() {
-    // start here!!!!!!!!!!!!!
-    let i = 120; 
+    let i = 10; 
 
     let timeInterval = setInterval(function() {
         i--;
@@ -40,7 +40,7 @@ function startTimer() {
             clearInterval(timeInterval);
             quizEnd();
         };
-    }, 1000); 
+    }, 60000); 
 };
 
 function checkAnswer() {
@@ -68,8 +68,7 @@ function checkAnswer() {
     if (currentQuestionIndex === questions.length) {
         quizEnd();
     } else {
-        displayQuestion();
-        startTimer();
+        displayQuestion()
     };
 };
 
@@ -86,6 +85,7 @@ function quizEnd() {
 // when the button "start" is clicked, the quiz starts
 startBtn.addEventListener('click', function() {
     initContainer.style.display = "none";
+    timeContainer.style.display = "block";
     displayQuestion();
     startTimer();
 }

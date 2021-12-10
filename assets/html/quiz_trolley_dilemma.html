@@ -10,7 +10,7 @@
     <!-- jquery-ui-cdn -->
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <!-- custom css -->
-    <link rel="stylesheet" type="text/css" href="../css/quiz2.css">
+    <link rel="stylesheet" type="text/css" href="../css/quiz.css">
 </head>
 
 <body>
@@ -52,16 +52,17 @@
     </nav>
 
     <main id="mainContainer">
-        <div>
-            <p class="floatLeft">Time left: <span id="timeLeft">120</span> seconds</p>
-            <p>Current score: <span id="currentScore"></span>/5</p>
-            <button class="floatLeft"><a href="./score.html" id="scoreBtn">View Scores</a></button>
+        <div id="timeContainer"><br/>
+          <p class="floatLeft">Time left: <span id="timeLeft">10</span> mins</p>
+          <p class="floatLeft">Current score: <span id="currentScore"></span>/5</p>
+          <button class="floatLeft btn btn-outline-dark"><a href="./score.html" id="scoreBtn">View Scores</a></button>
         </div>
 
         <div id="initContainer">
+          <br/><br/><br/>
           <h1>The Trolley Dilemma</h1>
-          <p>This quiz consists of 4 questions. Each question worths 1 point. You will need to enter your name at the end of quiz for your score to be recorded. You will need to answer each question within 2 minutes. Otherwise, the quiz will end automatically.</p>
-          <button id="startBtn">Start Quiz</button>
+          <p>This quiz consists of 4 questions. Each question worths 1 point. You will need to enter your name at the end of quiz for your score to be recorded. You will need to finish the quiz within 10 minutes. Otherwise, the quiz will end automatically.</p>
+          <button id="startBtn" class="btn btn-outline-dark">Start Quiz</button>
         </div>
 
         <div id="question-container" class="textCenter">
