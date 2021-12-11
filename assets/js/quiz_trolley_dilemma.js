@@ -76,8 +76,8 @@ function quizEnd() {
     eval.removeAttribute("class");
     eval.innerHTML = `Your current score is: ${j}. Please enter your name below. <br/><br/>
     <div class="input-group mb-3 mx-auto w-50">
-        <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><a href="./score.html">Submit</a></button>
+        <input type="text" id="userName" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="submitScoreBtn"><a href="./score.html">Submit</a></button>
     </div>
     `
 };
@@ -90,3 +90,24 @@ startBtn.addEventListener('click', function() {
     startTimer();
 }
 );
+
+
+//local storage
+let userName = document.getElementById("userName");
+let submitScoreBtn = document.getElementById("submitScoreBtn");
+console.log(submitScoreBtn);
+submitScoreBtn.addEventListener("click", function() {
+    localStorage.setItem('name', `${userName.value}`);
+});
+
+let scoreRecord = {
+    name: userName,
+    score: currentScore
+};                    
+
+function getScoreRecord() {
+    localStorage.getItem("scoreRecord");
+    scoreArray.push(scoreRecord.name, scoreRecord.currentScore);
+};
+
+getScoreRecord();
