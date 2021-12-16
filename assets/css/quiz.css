@@ -40,19 +40,6 @@
     color: black
 }
 
-#scoreContainer {
-    height: 20rem;
-    width: 30rem;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: lightblue;
-}
-
-#score {
-    margin-top: 10rem;
-    padding: 7rem;
-}
-
 .textCenter {
     text-align: center;
 }
@@ -70,4 +57,29 @@
 button a {
     color: black;
     text-decoration: none;
+}
+
+/* score container in score.html */
+#scoreContainer {
+    height: 20rem;
+    width: 30rem;
+    background-color: lightblue;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#defaultDisplay {
+    margin-top: 10rem;
+    padding: 7rem;
+}
+
+#score {
+    margin-top: 7rem;
+    padding: 7rem;
+}
+
+@media screen and (max-width: 768px) {
+    #scoreContainer {
+        width: auto;
+    }
 }

@@ -77,9 +77,10 @@ function quizEnd() {
     eval.innerHTML = `Your current score is: ${j}. Please enter your name below. <br/><br/>
     <div class="input-group mb-3 mx-auto w-50">
         <input type="text" id="userName" class="form-control" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary" type="button" id="submitScoreBtn"><a href="./score.html">Submit</a></button>
+        <button class="btn btn-outline-secondary" type="button" id="submitScoreBtn">Submit</button>
     </div>
-    `
+    `;
+    storeScore();
 };
 
 // when the button "start" is clicked, the quiz starts
@@ -92,22 +93,39 @@ startBtn.addEventListener('click', function() {
 );
 
 
-//local storage
-let userName = document.getElementById("userName");
-let submitScoreBtn = document.getElementById("submitScoreBtn");
-console.log(submitScoreBtn);
-submitScoreBtn.addEventListener("click", function() {
-    localStorage.setItem('name', `${userName.value}`);
-});
+//local storage method 1
+// function storeScore() {
+//     let submitScoreBtn = document.getElementById("submitScoreBtn");
+//     submitScoreBtn.addEventListener("click", function(event) {
+//         event.preventDefault();
+//         let userName = document.querySelector("#userName").value;
+//         if (userName === "") {
+//             alert("You must enter your name.");
+//             return
+//         } else {
+//             localStorage.setItem('userName', userName);
+//             localStorage.setItem('currentScore', j);
+//             window.location.href = "./score.html";
+//     }});    
+// };
 
-let scoreRecord = {
-    name: userName,
-    score: currentScore
-};                    
+//local storage method 2
 
-function getScoreRecord() {
-    localStorage.getItem("scoreRecord");
-    scoreArray.push(scoreRecord.name, scoreRecord.currentScore);
+
+function storeScore() {
+    let submitScoreBtn = document.getElementById("submitScoreBtn");
+    submitScoreBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        let userName = document.querySelector("#userName").value.trim();
+        if (userName === "") {
+            alert("You must enter your name.");
+            return
+        } else {
+            let scoreArray = JSON.parse(localStorage.getItem("scoreArray")) || [];
+            let scoreRecord = {userName: userName, currentScore: j};
+            scoreArray.push(scoreRecord);
+            localStorage.setItem('scoreArray', JSON.stringify(scoreArray));
+            window.location.href = "./score.html";
+    }});    
 };
 
-getScoreRecord();
