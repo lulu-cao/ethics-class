@@ -4,14 +4,6 @@ let result = document.getElementById('result');
 let lastFormat = document.getElementById('lastFormat');
 let lastKeyword = document.getElementById('lastKeyword');
 
-btn.addEventListener("click", function(event) {
-    event.preventDefault();
-    let source = document.getElementById('userSelect').value;
-let keyword = document.getElementById('userSearch').value.trim();
-    lastFormat.innerHTML = source;
-    lastKeyword.innerHTML = keyword;
-});
-
 function getAPI() {
     let source = document.getElementById('userSelect').value;
     let keyword = document.getElementById('userSearch').value.trim();
@@ -80,3 +72,31 @@ function getAPI() {
 };
 
 btn.addEventListener('click', getAPI);
+
+let searchArray = JSON.parse(localStorage.getItem("searchArray")) || [];
+
+btn.addEventListener("click", function(event) {
+    event.preventDefault();
+    let source = document.getElementById('userSelect').value;
+    let keyword = document.getElementById('userSearch').value.trim();
+    lastFormat.innerHTML += source + "; ";
+    lastKeyword.innerHTML += keyword + "; ";
+    let searchRecord = {lastFormat: source, lastKeyword: keyword};
+    searchArray.push(searchRecord);
+    localStorage.setItem("searchArray", JSON.stringify(searchArray));
+});
+
+// the page displays last searched format and keywords automatically
+function init() {
+    console.log(searchArray);
+    if (!searchArray) {
+        console.log("no data found");
+    } else {
+        for (let i=0; i<searchArray.length; i++) {
+            lastFormat.innerHTML += searchArray[i].lastFormat + "; ";
+            lastKeyword.innerHTML += searchArray[i].lastKeyword + "; ";
+        }
+    }
+};
+
+init();
