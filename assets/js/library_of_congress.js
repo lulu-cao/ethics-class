@@ -27,6 +27,7 @@ function beginSearch(event) {
             })
             .then(function (data) {   
                 console.log("search in progress"); 
+                console.log(data);
                 result.textContent = "";            
                 for (let i = 0; i < data.results.length; i++) {
                     var note = document.createElement('p'); //these variables must be inside the for loop so that every time i++, a new element set will be created

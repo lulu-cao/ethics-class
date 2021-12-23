@@ -4,6 +4,13 @@ let result = document.getElementById('result');
 let lastFormat = document.getElementById('lastFormat');
 let lastKeyword = document.getElementById('lastKeyword');
 
+btn.addEventListener("click", function(event) {
+    event.preventDefault();
+    let source = document.getElementById('userSelect').value;
+let keyword = document.getElementById('userSearch').value.trim();
+    lastFormat.innerHTML = source;
+    lastKeyword.innerHTML = keyword;
+});
 
 function getAPI() {
     let source = document.getElementById('userSelect').value;
