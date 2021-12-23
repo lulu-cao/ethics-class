@@ -4,12 +4,20 @@ let result = document.getElementById('result');
 let lastFormat = document.getElementById('lastFormat');
 let lastKeyword = document.getElementById('lastKeyword');
 
-// search begins
-function beginSearch(event) {
-    event.preventDefault();
+let libraryOfCongressArray = JSON.parse(localStorage.getItem("libraryOfCongressArray")) || [];
 
+// search begins
+function beginSearch() {
     let userSelect = document.getElementById('userSelect').value;
     let userSearch = document.getElementById('userSearch').value.trim();
+    
+    //log data into local storage
+    let libraryOfCongressItem = {format: userSelect, keyword: userSearch};
+    libraryOfCongressArray.push(libraryOfCongressItem); 
+    localStorage.setItem("libraryOfCongressArray", JSON.stringify(libraryOfCongressArray));  
+    lastFormat.textContent += userSelect + "; ";
+    lastKeyword.textContent += userSearch + "; ";  
+
     let url = "https://www.loc.gov/" + userSelect + "/?q=" + userSearch + "&fo=json";
 
     console.log(url);
@@ -28,7 +36,8 @@ function beginSearch(event) {
             .then(function (data) {   
                 console.log("search in progress"); 
                 console.log(data);
-                result.textContent = "";            
+                result.textContent = "";      
+
                 for (let i = 0; i < data.results.length; i++) {
                     var note = document.createElement('p'); //these variables must be inside the for loop so that every time i++, a new element set will be created
                     var createTitle = document.createElement('p');
@@ -47,25 +56,7 @@ function beginSearch(event) {
                     note.appendChild(createTitle);
                     result.appendChild(note);
                     console.log("search is complete");
-                    
-                    // get data from local storage
-                    let searchKeywords = {
-                        format: userSelect,
-                        keyword: userSearch
-                    };                    
-
-                    function renderLastSearch() {
-                        let lastSearched = JSON.parse(localStorage.getItem('searchKeywords'));
-                        if (lastSearched !== null) {
-                        lastFormat.textContent = searchKeywords.format;
-                        lastKeyword.textContent = searchKeywords.keyword;
-                    }};
-
-                    renderLastSearch();
-                    
-                    //log data into local storage
-                    localStorage.setItem("searchKeywords", JSON.stringify(searchKeywords));
-                    
+            
                 }
             })
         };
@@ -74,6 +65,19 @@ function beginSearch(event) {
     }
 };
 
-search.addEventListener('click', 
-    beginSearch
-);
+search.addEventListener('click', function(e) {
+    e.preventDefault();          
+                
+    beginSearch();
+});
+
+//get data from local storage
+function renderLastSearch() {
+    if (libraryOfCongressArray) {
+    libraryOfCongressArray.forEach(element => {
+        lastFormat.textContent += element.format + "; ";
+        lastKeyword.textContent += element.keyword + "; ";
+    })
+}};
+
+renderLastSearch();

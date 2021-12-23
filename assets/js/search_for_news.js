@@ -77,6 +77,7 @@ let searchArray = JSON.parse(localStorage.getItem("searchArray")) || [];
 
 btn.addEventListener("click", function(event) {
     event.preventDefault();
+    // data are stored in the local storage once the button is clicked
     let source = document.getElementById('userSelect').value;
     let keyword = document.getElementById('userSearch').value.trim();
     lastFormat.innerHTML += source + "; ";
