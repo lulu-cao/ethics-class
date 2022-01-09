@@ -10,8 +10,8 @@ function colorRow() {
     if (currentTime > j) {
       console.log(j);
       let string = `#row${j}`;
-      console.log(string);
-      console.log(document.querySelector(string));
+      // console.log(string);
+      // console.log(document.querySelector(string));
       document
         .getElementsByClassName("custom-row")
         [j - 7].classList.add("gray");
@@ -34,13 +34,14 @@ function init() {
       event.preventDefault();
       console.log("clicked");
       let inputValue = inputArray[i].value.trim();
-      let storageArray = [];
-      let storedData = JSON.parse(localStorage.getItem(plannedItems)) || "";
-      if (!storedData) {
+      let plannedItems;
+      let storageArray = JSON.parse(localStorage.getItem(plannedItems)) || [];
+      if (!storageArray) {
         storageArray.push(inputValue);
-        localStorage.setItem("plannedItems", storageArray);
+        localStorage.setItem("plannedItems", JSON.stringify(storageArray));
+        window.location.reload();
       } else {
-        inputArray[i].innerHTML = storedData;
+        inputArray[i].innerHTML = storageArray[i];
       }
     });
   }
