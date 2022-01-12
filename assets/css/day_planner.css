@@ -11,15 +11,3 @@
 .gray {
   background-color: rgb(235, 235, 235);
 }
-
-.lightgray {
-  background-color: lightgray;
-}
-
-.green {
-  background-color: lightgreen;
-}
-
-#test .form-control {
-  background-color: lightgray;
-}
