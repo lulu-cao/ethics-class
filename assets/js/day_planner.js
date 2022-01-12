@@ -2,7 +2,7 @@
 let inputArray = document.getElementsByClassName("form-control");
 let btnArray = document.getElementsByClassName("btn");
 
-let currentTime = moment().format("k") - 8;
+let currentTime = moment().format("k");
 
 function colorRow() {
   for (let j = 7; j < 21; j++) {
