@@ -19,21 +19,22 @@ colorRow();
 
 // Store planned items in local storage and get them upon landing the page
 function init() {
+  let storageArray = JSON.parse(localStorage.getItem("storageArray")) || [];
+  if (storageArray) {
+    console.log("There is a storageArray.");
+    for (let j = 0; j < storageArray.length; j++) {
+      inputArray[storageArray[j][0].index].placeholder =
+        storageArray[j][1].inputValue;
+    }
+  }
   for (let i = 0; i < inputArray.length; i++) {
-    console.log("initiated");
     btnArray[i].addEventListener("click", function storeData(event) {
       event.preventDefault();
       console.log("clicked");
       let inputValue = inputArray[i].value.trim();
-      let plannedItems;
-      let storageArray = JSON.parse(localStorage.getItem(plannedItems)) || [];
-      if (!storageArray) {
-        storageArray.push(inputValue);
-        localStorage.setItem("plannedItems", JSON.stringify(storageArray));
-        window.location.reload();
-      } else {
-        inputArray[i].innerHTML = storageArray[i];
-      }
+      storageArray.push([{ index: i }, { inputValue: inputValue }]);
+      localStorage.setItem("storageArray", JSON.stringify(storageArray));
+      window.location.reload();
     });
   }
 }
