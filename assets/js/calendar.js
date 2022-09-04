@@ -1,5 +1,5 @@
 // // //get holidays from API and add them to the calendar
-// let url = "https://calendarific.com/api/v2/holidays?api_key=bb3af9b5b18b01debdb7d770723b84dee8c9e30d&country=US&year=2021&month=10&type=national";
+// let url = "https://calendarific.com/api/v2/holidaysxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 // fetch(url)
 // .then(function(response){
 //     response.json().then(function(data) {
